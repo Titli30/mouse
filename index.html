@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Resume Builder</title>
+  <link rel="stylesheet" href="style.css" id="theme-style" />
+</head>
+<body>
+  <!-- Landing Page -->
+  <section id="landing-page">
+    <div class="hero">
+      <h1>Build Your Resume with AI</h1>
+      <p>Create a modern, professional resume in minutes using smart features.</p>
+      <button onclick="startBuilding()">Start Building</button>
+      <div class="switchers">
+        <button onclick="toggleTheme()">Toggle Theme</button>
+        <button onclick="switchTemplate()">Switch Template</button>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 ResumeAI | <a href="#">GitHub</a></p>
+    </footer>
+  </section>
+
+  <!-- Resume Builder -->
+  <section id="resume-builder" style="display:none;">
+    <div class="form-container">
+      <form id="cv-form">
+        <h2>Personal Info</h2>
+        <input type="text" id="nameField" placeholder="Full Name" />
+        <input type="text" id="guardianField" placeholder="Guardian Name" />
+        <input type="text" id="contactField" placeholder="Contact Number" />
+        <input type="email" id="emailField" placeholder="Email" />
+        <input type="text" id="addressField" placeholder="Address" />
+        <input type="url" id="githubField" placeholder="GitHub Link" />
+        <input type="file" id="imgField" accept="image/*" />
+
+        <h2>Profile Summary</h2>
+        <textarea id="summaryField" placeholder="Enter brief profile summary..."></textarea>
+        <button type="button" onclick="rewriteWithAI('summaryField')">Improve with AI ✨</button>
+
+        <h2>Skills</h2>
+        <input type="text" id="skillsField" placeholder="e.g. JavaScript, Python" />
+
+        <h2>Languages</h2>
+        <input type="text" id="languagesField" placeholder="e.g. English, Hindi" />
+
+        <h2>Hobbies</h2>
+        <input type="text" id="hobbiesField" placeholder="e.g. Reading, Coding" />
+
+        <h2>Education</h2>
+        <div id="edu-container"></div>
+        <button type="button" onclick="addEducation()">+ Add Education</button>
+
+        <h2>Experience</h2>
+        <div id="exp-container"></div>
+        <button type="button" onclick="addExperience()">+ Add Company</button>
+
+        <h2>Projects</h2>
+        <div id="proj-container"></div>
+        <button type="button" onclick="addProject()">+ Add Project</button>
+
+        <br/><br/>
+        <button type="button" onclick="fillSampleData()">Auto Fill Sample</button>
+        <button type="button" onclick="generateCV()">Generate Resume</button>
+        <button type="button" onclick="downloadPDF()">Download PDF</button>
+      </form>
+    </div>
+
+    <div id="cv-preview" class="template1">
+      <!-- Resume preview will be generated here -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
